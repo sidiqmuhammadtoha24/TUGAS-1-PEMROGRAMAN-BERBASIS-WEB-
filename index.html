@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — SITTA Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="login-wrapper">
+      <section class="login-card">
+        <div class="login-logo">
+          <img src="assets/logo-ut.png" alt="Logo Universitas Terbuka" />
+        </div>
+        <h1>SITTA</h1>
+        <p class="subtitle">
+          Sistem Informasi Tiras dan Transaksi Bahan Ajar<br />Universitas
+          Terbuka
+        </p>
+
+        <form id="loginForm" novalidate>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="contoh: rina@ut.ac.id"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Masukkan password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Masuk</button>
+
+          <div class="login-actions">
+            <button type="button" id="btnLupa" class="btn-link">
+              Lupa Password?
+            </button>
+            <button type="button" id="btnDaftar" class="btn-link">
+              Belum punya akun? Daftar
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- MODAL LUPA PASSWORD -->
+    <div class="modal-overlay" id="modalLupa">
+      <div class="modal">
+        <button
+          class="modal-close"
+          onclick="closeModal('modalLupa')"
+          aria-label="Tutup"
+        >
+          &times;
+        </button>
+        <h2>Lupa Password</h2>
+        <p>
+          Masukkan email Anda. Kami akan mengirim tautan untuk reset password.
+        </p>
+        <form id="formLupa">
+          <div class="input-group">
+            <label for="lupaEmail">Email</label>
+            <input
+              type="email"
+              id="lupaEmail"
+              placeholder="email@ut.ac.id"
+              required
+            />
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-link"
+              onclick="closeModal('modalLupa')"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn btn-secondary">
+              Kirim Tautan Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL DAFTAR -->
+    <div class="modal-overlay" id="modalDaftar">
+      <div class="modal">
+        <button
+          class="modal-close"
+          onclick="closeModal('modalDaftar')"
+          aria-label="Tutup"
+        >
+          &times;
+        </button>
+        <h2>Daftar Akun Baru</h2>
+        <p>Lengkapi data berikut untuk membuat akun.</p>
+        <form id="formDaftar">
+          <div class="input-group">
+            <label for="daftarNama">Nama Lengkap</label>
+            <input
+              type="text"
+              id="daftarNama"
+              placeholder="Nama lengkap"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="daftarEmail">Email</label>
+            <input
+              type="email"
+              id="daftarEmail"
+              placeholder="email@ut.ac.id"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="daftarPassword">Password (min. 6 karakter)</label>
+            <input
+              type="password"
+              id="daftarPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-link"
+              onclick="closeModal('modalDaftar')"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn btn-success">Daftar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      initLoginPage();
+    </script>
+  </body>
+</html>

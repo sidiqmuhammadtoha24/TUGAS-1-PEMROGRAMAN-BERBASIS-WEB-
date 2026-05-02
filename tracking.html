@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman — SITTA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <img src="assets/logo-ut.png" alt="UT" class="navbar-logo">
+        <span>SITTA</span>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+        <li><a href="tracking.html" class="active">Tracking Pengiriman</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)">Laporan ▾</a>
+          <div class="dropdown-content">
+            <a href="javascript:alert('Halaman Monitoring Progress DO (segera hadir)')">Monitoring Progress DO</a>
+            <a href="javascript:alert('Halaman Rekap Bahan Ajar (segera hadir)')">Rekap Bahan Ajar</a>
+          </div>
+        </li>
+        <li><a href="javascript:alert('Halaman Histori Transaksi (segera hadir)')">Histori Transaksi</a></li>
+      </ul>
+      <div class="navbar-user">
+        <span id="userInfoNav">User</span>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Tracking Pengiriman</h1>
+      <p class="greeting">Masukkan Nomor Delivery Order untuk melacak status pengiriman</p>
+    </section>
+
+    <article class="card">
+      <form id="formTracking" class="form-row">
+        <div class="input-group" style="flex:1">
+          <label for="noDO">Nomor Delivery Order (DO)</label>
+          <input type="text" id="noDO" placeholder="Contoh: 2023001234" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">🔍 Cari</button>
+      </form>
+      <p style="font-size:12px;color:var(--muted);margin-top:10px">
+        💡 Coba dengan nomor DO: <strong>2023001234</strong> atau <strong>2023005678</strong>
+      </p>
+    </article>
+
+    <section id="trackingResult" class="tracking-result"></section>
+  </main>
+
+  <footer>© 2026 SITTA — Universitas Terbuka</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script>initTrackingPage();</script>
+</body>
+</html>

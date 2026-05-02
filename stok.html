@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informasi Stok Bahan Ajar — SITTA</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <img src="assets/logo-ut.png" alt="UT" class="navbar-logo" />
+          <span>SITTA</span>
+        </div>
+        <ul class="navbar-menu">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="stok.html" class="active">Informasi Bahan Ajar</a></li>
+          <li><a href="tracking.html">Tracking Pengiriman</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)">Laporan ▾</a>
+            <div class="dropdown-content">
+              <a
+                href="javascript:alert('Halaman Monitoring Progress DO (segera hadir)')"
+                >Monitoring Progress DO</a
+              >
+              <a
+                href="javascript:alert('Halaman Rekap Bahan Ajar (segera hadir)')"
+                >Rekap Bahan Ajar</a
+              >
+            </div>
+          </li>
+          <li>
+            <a
+              href="javascript:alert('Halaman Histori Transaksi (segera hadir)')"
+              >Histori Transaksi</a
+            >
+          </li>
+        </ul>
+        <div class="navbar-user">
+          <span id="userInfoNav">User</span>
+          <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h1>Informasi Stok Bahan Ajar</h1>
+        <p class="greeting">Daftar bahan ajar yang tersedia di sistem SITTA</p>
+      </section>
+
+      <article class="card">
+        <h2>
+          <span>Daftar Bahan Ajar</span>
+          <button class="btn btn-success" id="btnTambahStok">
+            + Tambah Stok Baru
+          </button>
+        </h2>
+        <p
+          id="totalStokInfo"
+          style="font-size: 13px; color: var(--muted); margin-bottom: 14px"
+        ></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Cover</th>
+                <th>Kode Lokasi</th>
+                <th>Kode Barang</th>
+                <th>Nama Barang</th>
+                <th>Jenis</th>
+                <th>Edisi</th>
+                <th>Stok</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="stokTbody"></tbody>
+          </table>
+        </div>
+      </article>
+    </main>
+
+    <!-- MODAL TAMBAH STOK -->
+    <div class="modal-overlay" id="modalTambahStok">
+      <div class="modal" style="max-width: 550px">
+        <button
+          class="modal-close"
+          onclick="closeModal('modalTambahStok')"
+          aria-label="Tutup"
+        >
+          &times;
+        </button>
+        <h2>Tambah Stok Bahan Ajar</h2>
+        <p>Lengkapi data berikut untuk menambah bahan ajar baru.</p>
+        <form id="formTambahStok">
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="kodeLokasi">Kode Lokasi</label>
+              <input
+                type="text"
+                id="kodeLokasi"
+                placeholder="0JKT01"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="kodeBarang">Kode Barang</label>
+              <input
+                type="text"
+                id="kodeBarang"
+                placeholder="EKMA4216"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="namaBarang">Nama Barang</label>
+            <input
+              type="text"
+              id="namaBarang"
+              placeholder="Pengantar Manajemen"
+              required
+            />
+          </div>
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="jenisBarang">Jenis Barang</label>
+              <input
+                type="text"
+                id="jenisBarang"
+                placeholder="BMP"
+                value="BMP"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="edisi">Edisi</label>
+              <input type="text" id="edisi" placeholder="1" required />
+            </div>
+            <div class="input-group">
+              <label for="stok">Stok</label>
+              <input
+                type="number"
+                id="stok"
+                placeholder="100"
+                min="0"
+                required
+              />
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-link"
+              onclick="closeModal('modalTambahStok')"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn btn-success">Simpan Data</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>© 2026 SITTA — Universitas Terbuka</footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      initStokPage();
+    </script>
+  </body>
+</html>

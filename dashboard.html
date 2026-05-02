@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SITTA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <img src="assets/logo-ut.png" alt="UT" class="navbar-logo">
+        <span>SITTA</span>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+        <li><a href="tracking.html">Tracking Pengiriman</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)">Laporan ▾</a>
+          <div class="dropdown-content">
+            <a href="javascript:alert('Halaman Monitoring Progress DO Bahan Ajar (segera hadir)')">Monitoring Progress DO</a>
+            <a href="javascript:alert('Halaman Rekap Bahan Ajar (segera hadir)')">Rekap Bahan Ajar</a>
+          </div>
+        </li>
+        <li><a href="javascript:alert('Halaman Histori Transaksi (segera hadir)')">Histori Transaksi</a></li>
+      </ul>
+      <div class="navbar-user">
+        <span id="userName">User</span>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Dashboard Aplikasi SITTA</h1>
+      <p class="greeting" id="greeting">Selamat datang</p>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px"><span id="userRole"></span></p>
+    </section>
+
+    <section class="stat-row" aria-label="Statistik">
+      <div class="stat-box">
+        <div class="label">Total Judul Bahan Ajar</div>
+        <div class="value" id="totalBuku">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">Total Stok</div>
+        <div class="value" id="totalStok">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">Total Delivery Order</div>
+        <div class="value" id="totalDO">0</div>
+      </div>
+    </section>
+
+    <h2 style="color:var(--primary);margin-bottom:8px">Menu Utama</h2>
+    <section class="menu-grid">
+      <a href="stok.html" class="menu-card">
+        <div class="icon">📦</div>
+        <h3>Informasi Bahan Ajar</h3>
+        <p>Kelola data dan stok bahan ajar</p>
+      </a>
+      <a href="tracking.html" class="menu-card">
+        <div class="icon">🚚</div>
+        <h3>Tracking Pengiriman</h3>
+        <p>Lacak status pengiriman DO</p>
+      </a>
+      <a href="javascript:alert('Halaman Monitoring Progress DO Bahan Ajar (segera hadir)')" class="menu-card">
+        <div class="icon">📊</div>
+        <h3>Monitoring DO</h3>
+        <p>Pantau progress Delivery Order</p>
+      </a>
+      <a href="javascript:alert('Halaman Rekap Bahan Ajar (segera hadir)')" class="menu-card">
+        <div class="icon">📈</div>
+        <h3>Rekap Bahan Ajar</h3>
+        <p>Laporan rekap bahan ajar</p>
+      </a>
+      <a href="javascript:alert('Halaman Histori Transaksi (segera hadir)')" class="menu-card">
+        <div class="icon">🧾</div>
+        <h3>Histori Transaksi</h3>
+        <p>Riwayat transaksi bahan ajar</p>
+      </a>
+    </section>
+
+    <footer>© 2026 SITTA — Universitas Terbuka. Tugas Praktik 1 STSI4209</footer>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script>initDashboard();</script>
+</body>
+</html>
